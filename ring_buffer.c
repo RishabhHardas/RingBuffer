@@ -30,7 +30,7 @@ uint8_t ring_buffer_full(ring_buffer *rbuff)
 	return (rbuff->count == BUFFER_LENGTH);
 }
 
-int ring_buffer_get(ring_buffer *rbuff)
+BUFFER_DATA_TYPE ring_buffer_get(ring_buffer *rbuff)
 {
 	int temp;
 
@@ -50,7 +50,7 @@ int ring_buffer_get(ring_buffer *rbuff)
 	return temp;
 }
 
-void ring_buffer_put(ring_buffer *rbuff, const unsigned char ch)
+void ring_buffer_put(ring_buffer *rbuff, const BUFFER_DATA_TYPE ch)
 {
 	if (rbuff->overflow_handler == OVERFLOW_IGNORE_LATEST) {
 		if (rbuff->count < BUFFER_LENGTH) {
